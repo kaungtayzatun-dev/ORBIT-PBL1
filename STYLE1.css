@@ -1,0 +1,2363 @@
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 8%;
+    background: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* LEFT SIDE */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.header-left img {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-left img:hover {
+    transform: scale(1.05);
+}
+
+.site-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: -0.5px;
+}
+
+/* RIGHT SIDE NAV */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* NAV LINKS */
+.nav-link {
+    color: #0d1b2a;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3498db;
+}
+
+/* ACTIVE HOME BUTTON */
+.nav-link.active-home {
+    background-color: #e8ecf9;
+    color: #2b67f6;
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* GENERIC ACTIVE */
+.nav-active {
+    background-color: #e3f2fd;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    padding: 4px 12px;
+}
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+.content-dropdown {
+    position: relative;
+}
+
+.content-dropdown summary {
+    list-style: none;
+    cursor: pointer;
+    padding-right: 18px;
+    font-weight: 500;
+}
+
+.content-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.content-dropdown summary::after {
+    content: "▼";
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+.dropdown-box {
+    position: absolute;
+    top: 120%;
+    left: 0;
+
+    min-width: 180px;
+    padding: 12px;
+
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+
+    display: none;
+}
+
+.content-dropdown[open] .dropdown-box {
+    display: block;
+}
+
+.dropdown-box a {
+    display: block;
+    padding: 10px 5px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.dropdown-box a:hover {
+    color: #3498db;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    padding: 80px 8%;
+    background: #ffffff;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-blue {
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-blue:hover {
+    background: #217dbb;
+}
+
+.hero-image {
+    flex: 1;
+    width: 100%;
+    height: 350px;
+
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* =========================================================
+   STATS SECTION
+========================================================= */
+.stats-wrapper {
+    padding: 80px 8%;
+    background: #f1f3f5;
+    text-align: center;
+}
+
+.stats-section {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.stat-card {
+    flex: 1;
+
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.stat-card h3 {
+    color: #3498db;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* =========================================================
+   SOLUTIONS SECTION
+========================================================= */
+.solutions-section {
+    padding: 80px 8%;
+    text-align: center;
+    background: #ffffff;
+}
+
+.solutions-container {
+    display: flex;
+    gap: 20px;
+}
+
+.solution-card {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    background: #f9f9f9;
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.solution-card img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    margin-bottom: 15px;
+}
+
+.read-more {
+    margin-top: auto;
+
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border: 2px solid #3498db;
+    border-radius: 6px;
+
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    background: #3498db;
+    color: white;
+}
+
+/* =========================================================
+   FAQ SECTION
+========================================================= */
+.faq-hero {
+    padding: 60px 8%;
+}
+
+.faq-layout {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.faq-sidebar {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 100px;
+}
+
+.faq-main-title {
+    font-size: 3rem;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.faq-list {
+    flex: 1;
+}
+
+.faq-cat-title {
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid #ddd;
+    color: #2c3e50;
+}
+
+.faq-item {
+    overflow: hidden;
+
+    margin-bottom: 15px;
+
+    background: white;
+    border-radius: 8px;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.arrow-circle {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #3498db;
+    border-radius: 50%;
+
+    color: #3498db;
+
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] .arrow-circle {
+    transform: rotate(90deg);
+}
+
+.faq-answer {
+    padding: 0 20px 20px;
+    color: #666;
+}
+
+/* =========================================================
+   IOT SECTION
+========================================================= */
+.iot-section {
+    padding: 80px 8%;
+    background-color: #ffffff;
+}
+
+.iot-intro-container {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.iot-intro-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0d1b2a;
+}
+
+/* GRID */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* CARD */
+.step-card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 30px;
+
+    background: #f8f9fb;
+    border: 1px solid #eef1f6;
+    border-radius: 25px;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-12px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* NUMBER */
+.bg-number {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    font-size: 5rem;
+    font-weight: 900;
+    color: #e8ecf9;
+
+    z-index: 0;
+}
+
+/* ICON */
+.step-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background: white;
+    border-radius: 15px;
+
+    font-size: 1.5rem;
+
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-icon {
+    transform: scale(1.1);
+}
+
+.step-card h4,
+.step-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.step-card h4 {
+    margin-bottom: 15px;
+}
+
+.step-card p {
+    color: #555;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.site-footer {
+    padding: 50px 8%;
+    background-color: #0d1b2a;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-column h4 {
+    margin-bottom: 20px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* LINKS */
+.footer-column a {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #aeb6bf;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+/* TEXT */
+.footer-column p {
+    margin-bottom: 15px;
+
+    color: #aeb6bf;
+    font-size: 0.9rem;
+}
+
+/* INPUTS */
+.footer-column input {
+    width: 100%;
+
+    padding: 10px;
+    margin-bottom: 10px;
+
+    background-color: #0d1b2a;
+    border: 1px solid #aeb6bf;
+    border-radius: 4px;
+
+    color: white;
+}
+
+.footer-column input::placeholder {
+    color: #aeb6bf;
+}
+
+/* BUTTON */
+.footer-column button {
+    width: 100%;
+
+    padding: 10px;
+
+    background-color: #3498db;
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+    font-weight: 600;
+
+    transition: background 0.3s ease;
+}
+
+.footer-column button:hover {
+    background-color: #0f9dfb;
+}
+
+/* THANK YOU BOX */
+.thank-you {
+    margin-top: 10px;
+    padding: 10px;
+
+    border: 1px solid #3498db;
+    border-radius: 4px;
+
+    color: #3498db;
+    text-align: center;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    width: 100%;
+
+    margin-top: 40px;
+    padding-top: 20px;
+
+    text-align: center;
+
+    border-top: 1px solid #1c2833;
+}
+
+.footer-bottom p {
+    color: white;
+    font-size: 0.85rem;
+}
+
+/* SCROLL BUTTON */
+.scroll-up-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.scroll-up-btn {
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.scroll-up-btn:hover {
+    background: white;
+    color: #0d1b2a;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 992px) {
+
+    .hero,
+    .stats-section,
+    .solutions-container,
+    .faq-layout {
+        flex-direction: column;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-text h1,
+    .faq-main-title,
+    .iot-intro-container h2 {
+        font-size: 2rem;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero,
+    .stats-wrapper,
+    .solutions-section,
+    .faq-hero,
+    .iot-section,
+    .site-footer {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .btn-blue {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* =========================================================
+   STEP ICONS & PROCESS CARDS
+========================================================= */
+
+.step-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background: #ffffff;
+    border-radius: 15px;
+
+    font-size: 1.5rem;
+
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-icon {
+    transform: scale(1.1);
+}
+
+.step-card h4,
+.step-card p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Headings */
+.step-card h4 {
+    margin-bottom: 10px;
+    color: #2b67f6;
+    font-size: 1.25rem;
+}
+
+.step-card p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   RESPONSIVE PROCESS GRID
+========================================================= */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .process-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Laptop */
+@media (max-width: 1199px) and (min-width: 992px) {
+    .process-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 991px) and (min-width: 768px) {
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Large Phone */
+@media (max-width: 767px) and (min-width: 480px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        padding: 40px 10%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 479px) {
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        padding: 30px 5%;
+    }
+
+    .iot-intro-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .step-card {
+        padding: 20px;
+    }
+}
+
+/* =========================================================
+   IOT SECTION
+========================================================= */
+
+.iot-section {
+    padding: 80px 8%;
+    background-color: #f4f7f9;
+}
+
+/* =========================================================
+   ABOUT HERO SECTION
+========================================================= */
+
+.team-tagline {
+    margin-top: 0;
+
+    color: #2b67f6;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Hero Banner */
+.about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 320px;
+
+    padding: 120px 8%;
+
+    text-align: center;
+
+    background-image:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url("images/smart\ city\ 1.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-hero-title {
+    max-width: 900px;
+
+    color: #ffffff;
+
+    font-size: clamp(2rem, 6vw, 3rem);
+
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* =========================================================
+   FEATURE GRID
+========================================================= */
+
+.about-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+
+    padding: 80px 8%;
+
+    background-color: #ffffff;
+}
+
+.feature-card {
+    padding: 30px;
+
+    background: #f8f9fb;
+
+    border: 1px solid #eef1f6;
+    border-radius: 25px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+
+    color: #2b67f6;
+
+    font-size: 1.5rem;
+}
+
+/* =========================================================
+   SPLIT SECTION
+========================================================= */
+
+.about-split-section {
+    padding: 80px 8%;
+    background-color: #f8f9fb;
+}
+
+.about-split-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-split-image-box,
+.about-split-text-box {
+    flex: 1;
+}
+
+.about-split-image-box img {
+    width: 100%;
+    display: block;
+
+    border-radius: 20px;
+}
+
+.about-split-text-box h2 {
+    margin-bottom: 20px;
+    color: #2b67f6;
+}
+
+/* =========================================================
+   TEAM PROFILES
+========================================================= */
+
+.team-profiles-section {
+    padding: 80px 8%;
+}
+
+.team-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.profile-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.reverse-profile {
+    flex-direction: row-reverse;
+}
+
+.member-text-zone {
+    flex: 1;
+    max-width: 500px;
+}
+
+/* Pill Image Frame */
+.allbirds-pill-frame {
+    width: 250px;
+    height: 250px;
+
+    overflow: hidden;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 125px;
+
+    background-color: #eef1f6;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.allbirds-pill-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* =========================================================
+   STATS IMPACT SECTION
+========================================================= */
+
+.stats-impact-section {
+    padding: 80px 8%;
+
+    background-color: #f4f7f9;
+
+    text-align: center;
+}
+
+.impact-header {
+    margin-bottom: 60px;
+}
+
+.impact-header h3 {
+    margin-bottom: 15px;
+
+    color: #0d1b2a;
+
+    font-size: 2.2rem;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    padding: 20px 0;
+
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 280px;
+
+    padding: 60px 40px;
+
+    background: #ffffff;
+
+    border: 1px solid #eef1f6;
+    border-radius: 25px;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 40px rgba(43,103,246,0.12);
+}
+
+.stat-card h4 {
+    margin: 0;
+    padding: 10px 0;
+
+    color: #2b67f6;
+
+    font-size: 3.5rem;
+}
+
+.stat-card p {
+    margin: 0;
+    padding: 10px 0;
+
+    color: #555;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* =========================================================
+   FOOTER REFERENCES
+========================================================= */
+
+.footer-references {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+
+    padding: 40px 8%;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    text-align: left;
+
+    flex-wrap: wrap;
+}
+
+.ref-column h4 {
+    margin-bottom: 15px;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+}
+
+.ref-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ref-column li {
+    margin-bottom: 10px;
+}
+
+.ref-column a {
+    color: #aaaaaa;
+
+    text-decoration: none;
+    font-size: 0.85rem;
+
+    transition: color 0.3s ease;
+}
+
+.ref-column a:hover {
+    color: #2b67f6;
+}
+
+/* =========================================================
+   PROBLEM SECTION
+========================================================= */
+
+.problems-grid-section {
+    padding: 80px 8%;
+    background-color: #eef4fb;
+}
+
+.problem-card {
+    padding: 40px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 20px rgba(43,103,246,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #2b67f6;
+
+    box-shadow: 0 20px 40px rgba(43,103,246,0.15);
+}
+
+.problem-card h3 {
+    margin-bottom: 15px;
+
+    color: #1b5798;
+
+    font-size: 1.5rem;
+}
+
+.problem-card p {
+    margin-bottom: 25px;
+
+    color: #666666;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .about-split-wrapper,
+    .profile-block,
+    .reverse-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .member-photo-zone {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .stats-container,
+    .footer-references {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-references {
+        gap: 30px;
+    }
+
+    .about-hero {
+        padding: 100px 6%;
+    }
+}
+
+/* =========================================================
+   EXPLORE BUTTON
+========================================================= */
+
+.explore-btn {
+    display: inline-block;
+
+    padding: 10px 25px;
+
+    background-color: #2b67f6;
+    color: white;
+
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    border-radius: 50px;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.explore-btn:hover {
+    background-color: #1a51d5;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   INTRO SECTION
+========================================================= */
+
+.intro-section {
+    padding: 80px 8%;
+    background-color: #ffffff;
+}
+
+/* =========================================================
+   PROBLEMS GRID SECTION
+========================================================= */
+
+.problems-grid-section {
+    padding: 80px 8%;
+    background-color: #f4f7fa;
+}
+
+/* Grid Layout */
+.problem-card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* =========================================================
+   PROBLEM OVERLAY CARD
+========================================================= */
+
+.problem-card-overlay {
+    position: relative;
+
+    width: 100%;
+    height: 400px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.problem-card-overlay:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.problem-card-overlay img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.problem-card-overlay:hover img {
+    transform: scale(1.05);
+}
+
+/* Dark Overlay */
+.problem-card-overlay::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.4);
+}
+
+/* =========================================================
+   TEXT CONTENT OVERLAY
+========================================================= */
+
+.text-content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 20px;
+
+    text-align: center;
+    color: white;
+
+    background: rgba(0,0,0,0.35);
+
+    transition: all 0.4s ease;
+}
+
+.problem-card-overlay:hover .text-content {
+    padding-bottom: 40px;
+}
+
+/* =========================================================
+   OUTLINED BUTTON
+========================================================= */
+
+.explore-btn-outlined {
+    display: inline-block;
+
+    margin-top: 12px;
+    padding: 10px 22px;
+
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.problem-card-overlay:hover .explore-btn-outlined {
+    opacity: 1;
+    visibility: visible;
+}
+
+.explore-btn-outlined:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+/* =========================================================
+   FOOTER REFERENCES
+========================================================= */
+
+.footer-references-wrapper,
+.ref-list,
+.navigation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/* Full Width Footer Reference Area */
+.footer-references-full {
+    margin-top: 20px;
+    padding: 0 8% 40px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.ref-block {
+    margin-bottom: 20px;
+}
+
+.ref-block h4 {
+    margin-bottom: 10px;
+
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+/* Vertical Links */
+.ref-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-references-full a {
+    color: #aaaaaa;
+
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    transition: color 0.3s ease;
+}
+
+.footer-references-full a:hover {
+    color: #ffffff;
+}
+
+/* =========================================================
+   CONTENT WRAPPER
+========================================================= */
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding: 80px 8%;
+}
+
+/* IMAGE SIDE */
+.image-side {
+    flex: 1;
+    max-width: 50%;
+}
+
+.image-side img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* TEXT SIDE */
+.text-side {
+    flex: 1;
+    max-width: 45%;
+}
+
+.text-side h1 {
+    margin-bottom: 20px;
+
+    color: #0d1b2a;
+
+    font-size: 2.5rem;
+}
+
+.text-side h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    color: #2b67f6;
+}
+
+.text-side p {
+    line-height: 1.7;
+    color: #555;
+}
+
+/* =========================================================
+   LAYOUT DIRECTIONS
+========================================================= */
+
+/* Right Image */
+.right-img {
+    flex-direction: row;
+}
+
+.right-img .text-side {
+    order: 1;
+}
+
+.right-img .image-side {
+    order: 2;
+}
+
+/* Left Image */
+.left-img {
+    flex-direction: row;
+}
+
+.left-img .image-side {
+    order: 1;
+}
+
+.left-img .text-side {
+    order: 2;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.learn-more-btn,
+.back-btn,
+.btn-reserve,
+.ref-link {
+    display: inline-block;
+
+    margin-top: 25px;
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #3498db;
+    color: #ffffff;
+
+    text-decoration: none;
+    text-align: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Hover */
+.learn-more-btn:hover,
+.btn-reserve:hover,
+.ref-link:hover {
+    background-color: #2980b9;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Back Button Variant */
+.back-btn {
+    background-color: #7f8c8d;
+}
+
+.back-btn:hover {
+    background-color: #5d6d7e;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================================================
+   SOLUTIONS GRID
+========================================================= */
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+    padding: 50px 8%;
+}
+
+/* Solution Card */
+.solution-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid transparent;
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Stable Hover */
+.solution-card:hover {
+    border-color: #3498db;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Image */
+.solution-card img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+}
+
+/* Title */
+.solution-card h3 {
+    margin-bottom: 15px;
+
+    color: #0d1b2a;
+}
+
+/* Text */
+.solution-card p {
+    margin-bottom: 25px;
+
+    color: #555;
+
+    line-height: 1.6;
+}
+
+/* Button Placement */
+.learn-more-btn {
+    margin-top: auto;
+}
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header {
+    padding: 40px 0 20px;
+
+    text-align: center;
+}
+
+.section-header h2 {
+    margin-bottom: 10px;
+
+    color: #0d1b2a;
+
+    font-size: 2.5rem;
+}
+
+.section-header p {
+    max-width: 700px;
+    margin: 0 auto;
+
+    color: #666;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .problem-card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+
+    .content-wrapper,
+    .right-img,
+    .left-img {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-side,
+    .text-side {
+        max-width: 100%;
+    }
+
+    .content-wrapper {
+        padding: 50px 5%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 600px) {
+
+    .solutions-grid,
+    .problem-card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .text-side h1 {
+        font-size: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .problem-card-overlay {
+        height: 320px;
+    }
+}
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   ROOT / BODY
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+
+    font-family: sans-serif;
+    line-height: 1.6;
+
+    background: #ffffff;
+    color: #000000;
+}
+
+/* =========================================================
+   MEDIA DEFAULTS
+========================================================= */
+
+img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    width: 100%;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    color: #3498db;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+}
+
+p {
+    color: #000000;
+
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.7;
+}
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title {
+    padding: 60px 0;
+
+    text-align: center;
+}
+
+.page-title h1 {
+    margin: 0;
+    font-weight: 700;
+}
+
+/* =========================================================
+   SECTION HEADERS
+========================================================= */
+
+.section-header {
+    padding: 40px 0 20px;
+
+    text-align: center;
+}
+
+.section-header h2 {
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    max-width: 600px;
+    margin: 0 auto;
+
+    color: #555;
+
+    font-size: 1.1rem;
+}
+
+/* =========================================================
+   STICKY HEADER
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 20px 8%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eee;
+}
+
+header nav a {
+    text-decoration: none;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    min-height: 90vh;
+
+    padding: 100px 8%;
+
+    background-image: url("images/Smart traffic.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-text {
+    width: 100%;
+    max-width: 800px;
+
+    padding: 50px;
+
+    background: rgba(255,255,255,0.9);
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.hero-text h1 {
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-blue {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 14px 28px;
+
+    border-radius: 8px;
+
+    background: #3498db;
+    color: #ffffff;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-blue:hover {
+    background: #2980b9;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================================================
+   ANIMATED LINES
+========================================================= */
+
+.line {
+    overflow: hidden;
+}
+
+.line span {
+    display: block;
+
+    animation: reveal-infinite 4s infinite;
+}
+
+.line:nth-child(1) span {
+    animation-delay: 0s;
+}
+
+.line:nth-child(2) span {
+    animation-delay: 0.2s;
+}
+
+@keyframes reveal-infinite {
+
+    0% {
+        transform: translateY(100%);
+    }
+
+    15%,
+    80% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* =========================================================
+   FLEX LAYOUTS
+========================================================= */
+
+.stats-section,
+.stats-container,
+.solutions-container,
+.footer-container,
+.profile-block,
+.about-split-wrapper,
+.content-wrapper,
+.detail-wrapper,
+.faq-layout {
+    display: flex;
+    gap: 24px;
+}
+
+/* =========================================================
+   DETAIL WRAPPER
+========================================================= */
+
+.detail-wrapper {
+    align-items: flex-start;
+
+    padding: 80px 8%;
+}
+
+/* =========================================================
+   IMAGE SIDE
+========================================================= */
+
+.image-side {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    line-height: 0;
+}
+
+.image-side img,
+.stacked-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+
+    border-radius: 20px;
+}
+
+/* =========================================================
+   TEXT SIDE
+========================================================= */
+
+.text-side {
+    flex: 1;
+}
+
+.text-side h1 {
+    margin-bottom: 20px;
+}
+
+.text-side h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    color: #2b67f6;
+}
+
+/* =========================================================
+   FAQ STICKY SIDEBAR
+========================================================= */
+
+.faq-layout {
+    align-items: flex-start;
+}
+
+.faq-sidebar {
+    position: sticky;
+    top: 100px;
+
+    width: 300px;
+    flex-shrink: 0;
+
+    align-self: flex-start;
+}
+
+.faq-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* =========================================================
+   GRID SYSTEM
+========================================================= */
+
+.process-grid,
+.problem-card-container,
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+/* =========================================================
+   CARD SYSTEM
+========================================================= */
+
+.solution-card,
+.stat-card,
+.feature-card,
+.problem-card,
+.step-card,
+.responsive-card {
+    overflow: hidden;
+
+    padding: 24px;
+
+    border-radius: 20px;
+
+    word-wrap: break-word;
+}
+
+/* =========================================================
+   STAT CARD FIX
+========================================================= */
+
+.stat-card h4 {
+    margin-bottom: 20px;
+}
+
+.stat-card p {
+    margin-top: 0;
+}
+
+/* =========================================================
+   THANK YOU MESSAGE
+========================================================= */
+
+#thank-you-msg {
+    width: 100%;
+
+    margin-top: 10px;
+    padding: 10px;
+
+    border: 1px solid #aeb6bf;
+    border-radius: 4px;
+
+    background: transparent;
+
+    color: #aeb6bf;
+
+    text-align: center;
+}
+
+/* =========================================================
+   OVERFLOW FIXES
+========================================================= */
+
+main,
+section,
+.hero,
+.content-wrapper,
+.detail-wrapper,
+.about-split-wrapper {
+    overflow: visible;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+/* ========================
+   SMALL MOBILE
+======================== */
+
+@media (max-width: 480px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 16px;
+
+        padding: 16px 5%;
+
+        text-align: center;
+    }
+
+    .hero {
+        justify-content: center;
+
+        min-height: auto;
+
+        padding: 60px 5%;
+
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+
+        padding: 25px;
+    }
+
+    .faq-layout,
+    .stats-section,
+    .stats-container,
+    .solutions-container,
+    .footer-container,
+    .profile-block,
+    .about-split-wrapper,
+    .content-wrapper,
+    .detail-wrapper {
+        flex-direction: column;
+    }
+
+    .faq-sidebar {
+        position: static;
+        width: 100%;
+    }
+
+    .process-grid,
+    .solutions-grid,
+    .problem-card-container,
+    .responsive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-card,
+    .stat-card,
+    .feature-card,
+    .problem-card,
+    .step-card,
+    .responsive-card {
+        padding: 20px;
+    }
+
+    .footer-column,
+    .footer-references,
+    .footer-references-full {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ========================
+   LARGE MOBILE
+======================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 18px 6%;
+
+        text-align: center;
+    }
+
+    .hero {
+        justify-content: center;
+
+        min-height: auto;
+
+        padding: 70px 6%;
+
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .faq-layout,
+    .stats-section,
+    .stats-container,
+    .solutions-container,
+    .footer-container,
+    .profile-block,
+    .about-split-wrapper,
+    .content-wrapper,
+    .detail-wrapper {
+        flex-direction: column;
+    }
+
+    .faq-sidebar {
+        position: static;
+        width: 100%;
+    }
+
+    .process-grid,
+    .solutions-grid,
+    .problem-card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================
+   TABLET
+======================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .hero {
+        padding: 80px 6%;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .process-grid,
+    .problem-card-container,
+    .solutions-grid,
+    .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-section,
+    .stats-container {
+        flex-wrap: wrap;
+    }
+}
+
+/* ========================
+   LAPTOP
+======================== */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    .process-grid,
+    .responsive-grid,
+    .solutions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========================
+   LARGE DESKTOP
+======================== */
+
+@media (min-width: 1280px) {
+
+    .process-grid,
+    .responsive-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .solutions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
